@@ -14,6 +14,7 @@ add_executable(main
         src/cappuccino.cpp
         src/mocha.cpp
 )
+
 target_link_libraries(main
         GTest::GTest
         GTest::Main
