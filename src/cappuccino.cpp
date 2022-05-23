@@ -19,15 +19,12 @@ Cappuccino::Cappuccino(const Cappuccino& cap)
 // #################################### //
 void Cappuccino::operator=(const Cappuccino& cap)
 {
-    side_items = cap.side_items;
-    this->name = cap.name;
-    this->ingredients = cap.ingredients;
+    if (this != &cap) {
+        side_items = cap.side_items;
+        this->name = cap.name;
+        this->ingredients = cap.ingredients;
+    }
 }
-// #################################### //
-// Cappuccino::~Cappuccino()
-// {
-
-// }
 // #################################### //
 double Cappuccino::price()
 {
@@ -43,5 +40,11 @@ double Cappuccino::price()
     return _price;
 }
 // #################################### //
-// #################################### //
+Cappuccino::~Cappuccino()
+{
+    for (const auto& i : side_items)
+        delete i;
+    side_items.clear();
+    std::cout << "Cappuccino Destructor" << std::endl;
+}
 // #################################### //

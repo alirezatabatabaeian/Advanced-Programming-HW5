@@ -8,7 +8,7 @@ class Cappuccino : public EspressoBased {
 public:
     Cappuccino();
     Cappuccino(const Cappuccino& cap);
-    // ~Cappuccino();
+    ~Cappuccino();
     void operator=(const Cappuccino& cap);
 
     virtual std::string get_name() { return this->name; }
