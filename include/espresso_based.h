@@ -13,7 +13,7 @@ public:
     // void brew();
     std::vector<Ingredient*>& get_ingredients() { return ingredients; }
 
-    ~EspressoBased();
+    virtual ~EspressoBased();
 
 protected:
     EspressoBased();
