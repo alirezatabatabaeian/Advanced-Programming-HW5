@@ -1,7 +1,7 @@
 #include "mocha.h"
 
 // #################################### //
-Mocha::Mocha()
+Mocha::Mocha() // default constructor
     : side_items {}
 {
     this->name = "Mocha";
@@ -11,13 +11,13 @@ Mocha::Mocha()
     this->ingredients.push_back(new Chocolate { 1 });
 }
 // #################################### //
-Mocha::Mocha(const Mocha& moc)
+Mocha::Mocha(const Mocha& moc) // copy constructor
 {
     this->name = moc.name;
 
     for (size_t i {}; i < moc.ingredients.size(); i++) {
-        std::string _name { moc.ingredients[i]->get_name() };
-        size_t _units { moc.ingredients[i]->get_units() };
+        std::string _name { moc.ingredients[i]->get_name() }; // find name of class
+        size_t _units { moc.ingredients[i]->get_units() }; // find the unit of ingredient
 
         if (_name == "Cinnamon")
             this->ingredients.push_back(new Cinnamon { _units });
@@ -60,17 +60,17 @@ Mocha::Mocha(const Mocha& moc)
     }
 }
 // #################################### //
-void Mocha::operator=(const Mocha& moc)
+void Mocha::operator=(const Mocha& moc) // equal operator
 {
-    if (this != &moc) {
+    if (this != &moc) { // do not copy a class into it self
 
         this->name = moc.name;
 
-        for (const auto& i : ingredients)
+        for (const auto& i : ingredients) // clear the called object
             delete i;
         ingredients.clear();
 
-        for (size_t i {}; i < moc.ingredients.size(); i++) {
+        for (size_t i {}; i < moc.ingredients.size(); i++) { // copy the input into called object
             std::string _name { moc.ingredients[i]->get_name() };
             size_t _units { moc.ingredients[i]->get_units() };
 
@@ -120,7 +120,7 @@ void Mocha::operator=(const Mocha& moc)
     }
 }
 // #################################### //
-double Mocha::price()
+double Mocha::price() // calculate the price of a mocha using ingredint.price()
 {
     double _price {};
     for (size_t i {}; i < ingredients.size(); i++) {
@@ -137,6 +137,6 @@ double Mocha::price()
 Mocha::~Mocha()
 {
     for (const auto& i : side_items)
-        delete i;
-    side_items.clear();
+        delete i; // delete the content
+    side_items.clear(); // clear the vector
 }

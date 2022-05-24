@@ -8,10 +8,10 @@ public:
     size_t get_units() { return units; }
     virtual std::string get_name() = 0;
 
-    double price() { return price_unit * units; }
+    double price() { return price_unit * units; } 
 
 protected:
-    Ingredient(double _price_unit, size_t _units)
+    Ingredient(double _price_unit, size_t _units) // constructor
         : price_unit { _price_unit }
         , units { _units }
     {

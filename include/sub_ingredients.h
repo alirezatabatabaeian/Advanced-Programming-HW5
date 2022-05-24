@@ -16,7 +16,7 @@
         virtual std::string get_name() { return name; } \
     };
 
-DEFCLASS(Cinnamon, 5);
+DEFCLASS(Cinnamon, 5); // def classes
 DEFCLASS(Chocolate, 5);
 DEFCLASS(Sugar, 1);
 DEFCLASS(Cookie, 10);
@@ -25,24 +25,25 @@ DEFCLASS(Milk, 10);
 DEFCLASS(MilkFoam, 5);
 DEFCLASS(Water, 1);
 
-// // ######################################################### //
+// // ######################################################### // define sub-classes for ingredients of a coffee
 // class Cinnamon : public Ingredient {
 // public:
-//     Cinnamon(size_t units)
-//         : Ingredient { 5, units }
+//     Cinnamon(size_t units) // constructor
+//         : Ingredient { 5, units } // use ingredient constructor
 //     {
-//         this->name = "Cinnamon";
+//         this->name = "Cinnamon"; // set the name variable
 //     }
 
-//     virtual std::string get_name() { return this->name; }
+//     virtual std::string get_name() { return this->name; } // a function for return the name(for all classes,
+//                                                                                               its the same)
 // };
 // // ######################################################### //
 // class Chocolate : public Ingredient {
 // public:
 //     Chocolate(size_t units)
-//         : Ingredient { 5, units }
+//         : Ingredient { 5, units } // use ingredient constructor
 //     {
-//         this->name = "Chocolate";
+//         this->name = "Chocolate"; // set the name variable
 //     }
 
 //     virtual std::string get_name() { return this->name; }
@@ -51,9 +52,9 @@ DEFCLASS(Water, 1);
 // class Sugar : public Ingredient {
 // public:
 //     Sugar(size_t units)
-//         : Ingredient { 1, units }
+//         : Ingredient { 1, units } // use ingredient constructor
 //     {
-//         this->name = "Sugar";
+//         this->name = "Sugar"; // set the name variable
 //     }
 
 //     virtual std::string get_name() { return this->name; }
@@ -62,9 +63,9 @@ DEFCLASS(Water, 1);
 // class Cookie : public Ingredient {
 // public:
 //     Cookie(size_t units)
-//         : Ingredient { 10, units }
+//         : Ingredient { 10, units } // use ingredient constructor
 //     {
-//         this->name = "Cookie";
+//         this->name = "Cookie"; // set the name variable
 //     }
 
 //     virtual std::string get_name() { return this->name; }
@@ -73,9 +74,9 @@ DEFCLASS(Water, 1);
 // class Espresso : public Ingredient {
 // public:
 //     Espresso(size_t units)
-//         : Ingredient { 15, units }
+//         : Ingredient { 15, units } // use ingredient constructor
 //     {
-//         this->name = "Espresso";
+//         this->name = "Espresso"; // set the name variable
 //     }
 
 //     virtual std::string get_name() { return this->name; }
@@ -84,9 +85,9 @@ DEFCLASS(Water, 1);
 // class Milk : public Ingredient {
 // public:
 //     Milk(size_t units)
-//         : Ingredient { 10, units }
+//         : Ingredient { 10, units } // use ingredient constructor
 //     {
-//         this->name = "Milk";
+//         this->name = "Milk"; // set the name variable
 //     }
 
 //     virtual std::string get_name() { return this->name; }
@@ -95,9 +96,9 @@ DEFCLASS(Water, 1);
 // class MilkFoam : public Ingredient {
 // public:
 //     MilkFoam(size_t units)
-//         : Ingredient { 5, units }
+//         : Ingredient { 5, units } // use ingredient constructor
 //     {
-//         this->name = "MilkFoam";
+//         this->name = "MilkFoam"; // set the name variable
 //     }
 
 //     virtual std::string get_name() { return this->name; }
@@ -106,9 +107,9 @@ DEFCLASS(Water, 1);
 // class Water : public Ingredient {
 // public:
 //     Water(size_t units)
-//         : Ingredient { 1, units }
+//         : Ingredient { 1, units } // use ingredient constructor
 //     {
-//         this->name = "Water";
+//         this->name = "Water"; // set the name variable
 //     }
 
 //     virtual std::string get_name() { return this->name; }

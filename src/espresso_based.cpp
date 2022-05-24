@@ -1,13 +1,13 @@
 #include "espresso_based.h"
 
 // #################################### //
-EspressoBased::EspressoBased()
+EspressoBased::EspressoBased() // default constructor
     : name {}
     , ingredients {}
 {
 }
 // #################################### //
-EspressoBased::EspressoBased(const EspressoBased& esp)
+EspressoBased::EspressoBased(const EspressoBased& esp) // copy constructor
     : name { esp.name }
 {
 
@@ -16,8 +16,8 @@ EspressoBased::EspressoBased(const EspressoBased& esp)
     ingredients.clear();
 
     for (size_t i {}; i < esp.ingredients.size(); i++) {
-        std::string _name { esp.ingredients[i]->get_name() };
-        size_t _units { esp.ingredients[i]->get_units() };
+        std::string _name { esp.ingredients[i]->get_name() }; // find name of class
+        size_t _units { esp.ingredients[i]->get_units() }; // find the unit of ingredient
 
         if (_name == "Cinnamon")
             this->ingredients.push_back(new Cinnamon { _units });
@@ -38,16 +38,16 @@ EspressoBased::EspressoBased(const EspressoBased& esp)
     }
 }
 // #################################### //
-void EspressoBased::operator=(const EspressoBased& esp)
+void EspressoBased::operator=(const EspressoBased& esp) // equal operator
 {
-    if (this != &esp) {
+    if (this != &esp) { // do not copy a class into it self
         name = esp.name;
 
-        for (const auto& i : ingredients)
+        for (const auto& i : ingredients) // clear the called object
             delete i;
         ingredients.clear();
 
-        for (size_t i {}; i < esp.ingredients.size(); i++) {
+        for (size_t i {}; i < esp.ingredients.size(); i++) { // copy the input into called object
             std::string _name { esp.ingredients[i]->get_name() };
             size_t _units { esp.ingredients[i]->get_units() };
 
@@ -74,18 +74,18 @@ void EspressoBased::operator=(const EspressoBased& esp)
 EspressoBased::~EspressoBased()
 {
     for (const auto& i : ingredients)
-        delete i;
-    ingredients.clear();
+        delete i; // delete the content
+    ingredients.clear(); // clear the vector
 }
 // #################################### //
-void EspressoBased::brew()
+void EspressoBased::brew() // make a TUI using print
 {
     for (size_t i {}; i <= 100; i++) {
         if (ingredients.size() == 3) {
             if (i < 33) {
                 if (i == 0) {
                     std::cout << "\033[106m"
-                              << "\033[31m" << std::endl;
+                              << "\033[31m" << std::endl; // change color
                 }
                 for (size_t j {}; j < i; j++) {
                     if (j < i / 2) {
@@ -97,7 +97,7 @@ void EspressoBased::brew()
                                   << "----------------------------------------" << std::endl;
                     } else if (j == i - 1) {
                         std::cout << "  Espresso : " << i << "% of Cappuccino Completed"
-                                  << "\r" << std::flush;
+                                  << "\r" << std::flush; // update the text
                     }
                 }
             } else if (i < 66) {

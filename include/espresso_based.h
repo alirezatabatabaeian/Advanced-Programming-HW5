@@ -17,7 +17,7 @@ public:
     void brew();
     std::vector<Ingredient*>& get_ingredients() { return ingredients; }
 
-    virtual ~EspressoBased();
+    virtual ~EspressoBased(); // we need to make it virtual
 
 protected:
     EspressoBased();

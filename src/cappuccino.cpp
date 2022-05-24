@@ -1,7 +1,7 @@
 #include "cappuccino.h"
 
 // #################################### //
-Cappuccino::Cappuccino()
+Cappuccino::Cappuccino() // default constructor
     : side_items {}
 {
     this->name = "Cappuccino";
@@ -10,13 +10,13 @@ Cappuccino::Cappuccino()
     this->ingredients.push_back(new MilkFoam { 1 });
 }
 // #################################### //
-Cappuccino::Cappuccino(const Cappuccino& cap)
+Cappuccino::Cappuccino(const Cappuccino& cap) // copy constructor
 {
     this->name = cap.name;
 
     for (size_t i {}; i < cap.ingredients.size(); i++) {
-        std::string _name { cap.ingredients[i]->get_name() };
-        size_t _units { cap.ingredients[i]->get_units() };
+        std::string _name { cap.ingredients[i]->get_name() }; // find name of class
+        size_t _units { cap.ingredients[i]->get_units() }; // find the unit of ingredient
 
         if (_name == "Cinnamon")
             this->ingredients.push_back(new Cinnamon { _units });
@@ -59,17 +59,17 @@ Cappuccino::Cappuccino(const Cappuccino& cap)
     }
 }
 // #################################### //
-void Cappuccino::operator=(const Cappuccino& cap)
+void Cappuccino::operator=(const Cappuccino& cap) // equal operator
 {
-    if (this != &cap) {
+    if (this != &cap) { // do not copy a class into it self
 
         this->name = cap.name;
 
-        for (const auto& i : ingredients)
+        for (const auto& i : ingredients) // clear the called object
             delete i;
         ingredients.clear();
 
-        for (size_t i {}; i < cap.ingredients.size(); i++) {
+        for (size_t i {}; i < cap.ingredients.size(); i++) { // copy the input into called object
             std::string _name { cap.ingredients[i]->get_name() };
             size_t _units { cap.ingredients[i]->get_units() };
 
@@ -119,7 +119,7 @@ void Cappuccino::operator=(const Cappuccino& cap)
     }
 }
 // #################################### //
-double Cappuccino::price()
+double Cappuccino::price() // calculate the price of a mocha using ingredint.price()
 {
     double _price {};
     for (size_t i {}; i < ingredients.size(); i++) {
@@ -136,7 +136,7 @@ double Cappuccino::price()
 Cappuccino::~Cappuccino()
 {
     for (const auto& i : side_items)
-        delete i;
-    side_items.clear();
+        delete i; // delete the content
+    side_items.clear(); // clear the vector
 }
 // #################################### //
